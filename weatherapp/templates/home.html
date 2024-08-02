@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{%block title %}Home Page {%endblock%}
+{% block content %}
+<title>Weather Forecast</title>
+</head>
+<body>
+    <div class="container mt-10">
+        <div class="card text-white custom-card">
+            <div class="card-body">
+                <h5 class="card-title">Current Weather</h5>
+                <p id = "datetime" class="card-text"></p>
+                <p class="card-text">{{ current_weather.temp}} °F <i class="fas fa-cloud-sun"></i></p>
+                <p class="card-text">{{current_weather.get_cloud_cover_info}} <i class="fas fa-cloud"></i></p>
+                <p class="card-text">Feels like {{current_weather.pr}} °F</p>
+                <hr>
+                <p class="card-text">Air quality: 40 <i class="fas fa-wind"></i></p>
+                <p class="card-text">Wind: {{current_weather.wspd}} mph <i class="fas fa-wind"></i></p>
+                <p class="card-text">Humidity: {{current_weather.rhum}}% <i class="fas fa-tint"></i></p>
+                <p class="card-text">Visibility: 6.2 mi <i class="fas fa-eye"></i></p>
+                <p class="card-text">Pressure: {{current_weather.pres}} in <i class="fas fa-chart-line"></i></p>
+                <p class="card-text">Dew point: {{current_weather.dwpt}} °F</p>
+                <button class="btn btn-light">See different weather</button>
+            </div>
+        </div>
+    </div>
+</head>
+<div class = "container mt-4">
+<table class="table">
+    <tbody>
+    {% for weather in weather_daily %}
+    
+        <td> 
+            <div class="weather-card">
+            <div class="date">{{weather.date}}</div>
+            <div class="temperature">
+            <i class="fas fa-sun icon"></i> {{weather.tmin}} / {{weather.tmax}}
+            </div>
+            <div class="description">
+                <i class="fas fa-cloud icon"></i> Clear weather
+            </div> 
+        </div></td> 
+        {% endfor %}
+        </tbody>
+</table> 
+</div>
+</body>
+
+<h1 style ="text-align:center; color:white"> Montlhy Weather </h1> 
+<table class="table table-dark table-hover">
+
+
+    <tr>
+        <th>Date</th>
+        <th>Temperature average</th>
+        <th>Min Temperature</th>
+        <th>Max Temperature</th>
+        <th>Preciptation</th>
+        <th>Windows Speed</th>
+        <th>Pressure</th>
+        <th>Temperature of Sun</th>
+        </tr>
+    {%for weather in weather_monthly %}
+    <tr>
+    <td>{{weather.date}}</td> 
+    <td>{{weather.tavg}} </td>
+    <td>{{weather.tmin}} </td>
+    <td>{{weather.tmax}} </td>
+    <td>{{weather.prcp}} </td>
+    <td>{{weather.wspd}} </td>
+    <td>{{weather.pres}} </td>
+    <td>{{weather.tsun}} </td>
+    {% endfor %}
+    </tr>
+</table>
+
+
+<!--
+<div class="weather-graph">
+    <div class="tabs">
+        <button class="tab active">Summary</button>
+        <button class="tab">Hourly</button>
+        <button class="tab">More details</button>
+    </div>
+    <div class="temperature-graph">
+        {%for weather in weather_hourly %}
+        <div class = "time-label">{{weather.date}} </div>
+        <div class = "temperature-label"> {{weather.tmax}}</div> 
+        {% endfor %}
+       
+    </div>
+</div>
+-->
+<script>
+    window.onload = function() {
+        setInterval(function() {
+            var date = new Date();
+            var displayDate = date.toLocaleDateString();
+            var displayTime = date.toLocaleTimeString();
+            document.getElementById('datetime').innerHTML = displayDate + " " + displayTime;
+        }, 1000); // 1000 milliseconds = 1 second
+    };
+    </script>
+</body>
+    {%endblock%}
+

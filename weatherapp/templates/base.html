@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<di></div>
+<head> 
+<meta charset = "UTF-8"/>
+<meta 
+name = "viewport"
+content = "width=device-width, initial-scale=1, shrink-to-fit=no" /> 
+<!-- BootStrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Add a link to a font icon library (e.g., Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Custom styling for the card */
+        .custom-card {
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
+
+        }
+
+        .weather-card {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+        .date {
+            font-size: 16px;
+        }
+        .temperature {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .description {
+            font-size: 16px;
+        }
+
+        /* styles.css */
+
+
+.weather-graph {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: #ddd;
+}
+
+
+
+.temperature-graph {
+    /* Set the dimensions of the graph itself */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* Example styling for temperature data points */
+.temperature-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00; /* Yellow color for daytime */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Example styling for temperature labels */
+.temperature-label {
+    position: absolute;
+    bottom: -20px;
+    font-size: 12px;
+    color: #333;
+}
+
+/* Example styling for time labels */
+.time-label {
+    position: absolute;
+    bottom: -40px;
+    font-size: 10px;
+    color: #999;
+}
+
+
+    </style>
+    
+
+    <title>{% block title %}Weather application {% endblock %}</title>
+
+</head>
+<body>
+
+<div style="background: linear-gradient(rgb(36, 77, 114) 0%, rgb(7, 33, 59) 100%);" class = "container">{% block content %}{%endblock%}</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
